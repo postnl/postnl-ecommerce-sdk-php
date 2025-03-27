@@ -1,0 +1,63 @@
+{
+    "name": "postnl/postnl-ecommerce-sdk",
+    "description": "Collection of PostNL API's for ecommerce processes.",
+    "type": "library",
+    "keywords": [
+        "PostNL",
+        "SDK",
+        "API",
+        "ecommerce"
+    ],
+    "homepage": "https://developer.postnl.nl/docs",
+    "license": [
+        "MIT"
+    ],
+    "authors": [
+        {
+            "name": "PostNL",
+            "email": "apimatic@postnl.nl",
+            "homepage": "https://developer.postnl.nl/docs",
+            "role": "owner"
+        }
+    ],
+    "support": {
+        "email": "apimatic@postnl.nl",
+        "docs": "https://developer.postnl.nl/docs"
+    },
+    "prefer-stable": false,
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-json": "*",
+        "apimatic/unirest-php": "^4.0.0",
+        "apimatic/core-interfaces": "~0.1.5",
+        "apimatic/core": "~0.3.13"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "phan/phan": "5.4.5",
+        "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "PostnlEcommerceLib\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PostnlEcommerceLib\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html=coverage",
+        "lint-src": "phpcs --standard=phpcs-ruleset.xml src/",
+        "lint-src-fix": "phpcbf --standard=phpcs-ruleset.xml src/",
+        "lint-tests": "phpcs --standard=phpcs-ruleset.xml tests/",
+        "lint-tests-fix": "phpcbf --standard=phpcs-ruleset.xml tests/",
+        "analyze": "phan --allow-polyfill-parser -p",
+        "lint": [
+            "@lint-src",
+            "@lint-tests"
+        ]
+    }
+}
